@@ -60,11 +60,11 @@
     canvas.width = cw;
     canvas.height = ch;
     const ctx = canvas.getContext('2d', { willReadFrequently: true });
-    ctx.drawImage(img, 0, 0, cw, ch);
     try {
+      ctx.drawImage(img, 0, 0, cw, ch);
       return ctx.getImageData(0, 0, cw, ch);
     } catch (e) {
-      return null; // 画布被跨域图片污染
+      return null; // 画布被跨域图片污染，或图片处于损坏/未加载状态
     }
   }
 

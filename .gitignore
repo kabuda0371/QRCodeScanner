@@ -14,6 +14,7 @@ __pycache__/
 # 浏览器自动化测试临时目录
 .chrome-test/
 .edge-test/
+.edge-profile/
 .wxtest/
 .chrome-dump.html
 .chrome-log.txt
