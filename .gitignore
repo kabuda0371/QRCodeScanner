@@ -1,0 +1,24 @@
+# 构建产物
+*.zip
+
+# 测试素材（由 tools/build_test.py 重新生成；test.html 已内嵌全部二维码）
+test/*.png
+test/*.pgm
+test/*.bin
+test/*.dims
+
+# Python
+__pycache__/
+*.pyc
+
+# 浏览器自动化测试临时目录
+.chrome-test/
+.edge-test/
+.wxtest/
+.chrome-dump.html
+.chrome-log.txt
+.wx-dump.html
+
+# 依赖库解包缓存（由 tools/download_zxing.js 重新生成）
+tools/zxing-pkg/
+tools/zxing-wasm.tgz

@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "二维码识别助手 (QR Scanner)",
+  "version": "1.2.2",
+  "description": "右键网页图片一键识别二维码：支持复制内容、打开链接、扫描本页所有二维码（含 CSS 背景图）、框选区域识别。内置 zxing-cpp + jsQR 双引擎，全程本地识别，不收集、不上传任何数据。",
+  "minimum_chrome_version": "106",
+  "permissions": [
+    "contextMenus",
+    "scripting",
+    "clipboardWrite",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "二维码识别助手：扫描本页所有二维码",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["lib/jsQR.js", "lib/zxing.js", "content.js"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["lib/zxing_reader.wasm"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
